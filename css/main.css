@@ -34,3 +34,24 @@ section {
 .badge {
     margin-right: 0.3rem;
 }
+/* Palette light (par défaut) */
+:root {
+    --color-bg-dark: #121212;
+    --color-text-dark: #e8e8e8;
+    --color-bg-card-dark: #1e1e1e;
+}
+
+/* Palette dark (sera activée via JS en Phase 5, ex: classe .dark-mode sur <body>) */
+.dark-mode {
+    --color-bg: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+}
+
+.dark-mode .card {
+    background-color: var(--color-bg-card-dark);
+    color: var(--color-text-dark);
+}
+
+.dark-mode footer {
+    background-color: #000;
+}
