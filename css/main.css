@@ -1,0 +1,57 @@
+:root {
+    --color-primary: #0d6efd;
+    --color-bg: #ffffff;
+    --color-text: #212529;
+    --color-muted: #6c757d;
+    --font-main: 'Segoe UI', system-ui, sans-serif;
+    --spacing-section: 5rem;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+section {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.badge {
+    margin-right: 0.3rem;
+}
+/* Palette light (par défaut) */
+:root {
+    --color-bg-dark: #121212;
+    --color-text-dark: #e8e8e8;
+    --color-bg-card-dark: #1e1e1e;
+}
+
+/* Palette dark (sera activée via JS en Phase 5, ex: classe .dark-mode sur <body>) */
+.dark-mode {
+    --color-bg: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+}
+
+.dark-mode .card {
+    background-color: var(--color-bg-card-dark);
+    color: var(--color-text-dark);
+}
+
+.dark-mode footer {
+    background-color: #000;
+}
