@@ -55,3 +55,32 @@ section {
 .dark-mode footer {
     background-color: #000;
 }
+#hero h1,
+#hero p,
+#hero a {
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+}
+
+#hero h1 {
+    animation-delay: 0.1s;
+}
+
+#hero p {
+    animation-delay: 0.4s;
+}
+
+#hero a {
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
