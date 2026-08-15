@@ -84,3 +84,11 @@ section {
         transform: translateY(0);
     }
 }
+.progress-bar {
+    width: 0%;
+    transition: width 1.5s ease-in-out;
+}
+
+#skills.animate .progress-bar {
+    width: var(--target-width) !important;
+}
