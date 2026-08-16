@@ -204,4 +204,6 @@ header {
     background-color: var(--color-bg);
     z-index: 1000;
     transition: background-color 0.3s ease;
+}html {
+    scroll-behavior: smooth;
 }
