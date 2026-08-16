@@ -24,3 +24,26 @@ const timelineElement = document.querySelector('.timeline');
 if (timelineElement) {
     observer.observe(timelineElement);
 }
+// Toggle dark/light mode
+const themeToggle = document.querySelector('#theme-toggle');
+const body = document.body;
+
+// Vérifie si un thème est déjà sauvegardé au chargement
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.textContent = '☀️ Mode clair';
+}
+
+// Au clic sur le bouton
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Mode clair';
+    } else {
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Mode sombre';
+    }
+});

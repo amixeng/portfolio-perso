@@ -198,3 +198,10 @@ footer a:hover::after {
         transform: translateX(0);
     }
 }
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-bg);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
