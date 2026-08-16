@@ -207,3 +207,23 @@ header {
 }html {
     scroll-behavior: smooth;
 }
+.dark-mode .text-muted {
+    color:var(--color-primary) !important;
+    opacity: 0.85;
+}
+.dark-mode .form-control {
+    background-color: #1e1e1e;
+    color: var(--color-text-dark);
+    border-color: #3a3a3a;
+}
+
+.dark-mode .form-control::placeholder {
+    color: #888;
+}
+
+.dark-mode .form-control:focus {
+    background-color: #1e1e1e;
+    color: var(--color-text-dark);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
