@@ -90,3 +90,75 @@ if (projectsContainer) {
         projectsContainer.insertAdjacentHTML('beforeend', cardHTML);
     });
 }
+// Validation du formulaire de contact
+const contactForm = document.querySelector('#contact-form');
+const emailInput = document.querySelector('#email');
+const nameInput = document.querySelector('#name');
+const messageInput = document.querySelector('#message');
+
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+function showError(input, message) {
+    input.classList.add('is-invalid');
+    input.classList.remove('is-valid');
+
+    let feedback = input.nextElementSibling;
+    if (!feedback || !feedback.classList.contains('invalid-feedback')) {
+        feedback = document.createElement('div');
+        feedback.classList.add('invalid-feedback');
+        input.insertAdjacentElement('afterend', feedback);
+    }
+    feedback.textContent = message;
+}
+
+function showSuccess(input) {
+    input.classList.add('is-valid');
+    input.classList.remove('is-invalid');
+}
+
+// Validation en temps réel sur l'email
+emailInput.addEventListener('input', () => {
+    if (validateEmail(emailInput.value)) {
+        showSuccess(emailInput);
+    } else {
+        showError(emailInput, 'Veuillez entrer une adresse email valide.');
+    }
+});
+
+// Validation à la soumission
+contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let isValid = true;
+
+    if (nameInput.value.trim() === '') {
+        showError(nameInput, 'Le nom est requis.');
+        isValid = false;
+    } else {
+        showSuccess(nameInput);
+    }
+
+    if (!validateEmail(emailInput.value)) {
+        showError(emailInput, 'Veuillez entrer une adresse email valide.');
+        isValid = false;
+    } else {
+        showSuccess(emailInput);
+    }
+
+    if (messageInput.value.trim() === '') {
+        showError(messageInput, 'Le message est requis.');
+        isValid = false;
+    } else {
+        showSuccess(messageInput);
+    }
+
+    if (isValid) {
+        alert('Message envoyé avec succès !(Simulation, retouver mon lien de contact dans le footer)');
+        contactForm.reset();
+        [nameInput, emailInput, messageInput].forEach((input) => {
+            input.classList.remove('is-valid', 'is-invalid');
+        });
+    }
+});
