@@ -47,3 +47,46 @@ themeToggle.addEventListener('click', () => {
         themeToggle.textContent = '🌙 Mode sombre';
     }
 });
+// Données des projets
+const projects = [
+    {
+        title: "BarberKing",
+        description: "Application web pour salon de coiffure, développée en équipe de deux. Frontend en Vanilla JS + Bootstrap 5, authentification JWT, gestion de rôles.",
+        badges: ["JavaScript", "Bootstrap", "Node.js"]
+    },
+    {
+        title: "ItSakafo",
+        description: "Marketplace alimentaire étudiante avec système de vente et upload de photos. Développé en PHP, MySQL et Bootstrap.",
+        badges: ["PHP", "MySQL", "Bootstrap"]
+    },
+    {
+        title: "IT-Poker",
+        description: "Application de gestion de caisse pour parties de poker, avec système de conversion points/Ariary, sans base de données (flat files).",
+        badges: ["PHP", "JavaScript", "Bootstrap"]
+    }
+];
+
+// Injection dynamique des cartes projets
+const projectsContainer = document.querySelector('#projects-container');
+
+if (projectsContainer) {
+    projects.forEach((project) => {
+        const badgesHTML = project.badges
+            .map((badge) => `<span class="badge bg-secondary">${badge}</span>`)
+            .join('');
+
+        const cardHTML = `
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">${project.title}</h5>
+                        <p class="card-text">${project.description}</p>
+                        ${badgesHTML}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        projectsContainer.insertAdjacentHTML('beforeend', cardHTML);
+    });
+}
