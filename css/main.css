@@ -142,3 +142,35 @@ section {
     border: 3px solid var(--color-bg);
     box-shadow: 0 0 0 2px var(--color-primary);
 }
+.btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(13, 110, 253, 0.35);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+footer a {
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
